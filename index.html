@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CV Project Management — Camila F. Azola Garaventa</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #F2F0EC;
+    --paper: #FAFAF8;
+    --ink: #16150F;
+    --mid: #5A5750;
+    --light: #9E9B94;
+    --accent: #1B4D3E;
+    --accent2: #2D7A5F;
+    --accent-pale: #E0EDE8;
+    --rule: #DDD9D0;
+    --left: #16150F;
+    --left-text: #F2F0EC;
+    --left-muted: #8A887F;
+    --left-accent: #4CAF85;
+  }
+
+  @media print {
+    body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .page { box-shadow: none; margin: 0; max-width: 100%; }
+  }
+
+  body {
+    font-family: 'Lato', sans-serif;
+    background: var(--bg);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 40px 20px;
+  }
+
+  .page {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    max-width: 920px;
+    width: 100%;
+    background: var(--paper);
+    box-shadow: 0 24px 80px rgba(0,0,0,0.15), 0 2px 8px rgba(0,0,0,0.08);
+    min-height: 1120px;
+  }
+
+  /* ── LEFT PANEL ── */
+  .left {
+    background: var(--left);
+    padding: 40px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .left::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 180px; height: 180px;
+    border-radius: 50%;
+    background: rgba(76,175,133,0.08);
+    pointer-events: none;
+  }
+  .left::after {
+    content: '';
+    position: absolute;
+    bottom: 80px; left: -40px;
+    width: 120px; height: 120px;
+    border-radius: 50%;
+    background: rgba(76,175,133,0.05);
+    pointer-events: none;
+  }
+
+  .name-block { position: relative; z-index: 1; }
+  .name-top {
+    font-family: 'Syne', sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    color: var(--left-muted);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .name-main {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 22px;
+    color: var(--left-text);
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+  }
+  .name-accent {
+    color: var(--left-accent);
+  }
+  .role-pill {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--left);
+    background: var(--left-accent);
+    padding: 4px 10px;
+    border-radius: 2px;
+  }
+
+  .l-section { position: relative; z-index: 1; }
+  .l-label {
+    font-size: 8.5px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--left-accent);
+    margin-bottom: 10px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid rgba(76,175,133,0.25);
+  }
+
+  .contact-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 11px;
+    color: var(--left-muted);
+    line-height: 1.5;
+    margin-bottom: 6px;
+  }
+  .c-icon { color: var(--left-accent); font-size: 11px; flex-shrink: 0; margin-top: 1px; }
+
+  .skill-bar-item { margin-bottom: 9px; }
+  .skill-bar-name {
+    font-size: 11px;
+    color: var(--left-text);
+    font-weight: 400;
+    margin-bottom: 4px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .skill-bar-name span { color: var(--left-muted); font-size: 9.5px; }
+  .bar-track {
+    height: 3px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--left-accent), #2D7A5F);
+    border-radius: 2px;
+  }
+
+  .pm-skill {
+    font-size: 11px;
+    color: var(--left-text);
+    padding: 5px 8px;
+    border-left: 2px solid rgba(76,175,133,0.4);
+    margin-bottom: 5px;
+    line-height: 1.4;
+  }
+
+  .edu-block { margin-bottom: 10px; }
+  .edu-name { font-size: 11.5px; color: var(--left-text); font-weight: 700; line-height: 1.35; }
+  .edu-sub { font-size: 10.5px; color: var(--left-muted); line-height: 1.35; }
+  .edu-year { font-size: 9.5px; color: var(--left-accent); margin-top: 1px; }
+
+  .lang-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 11px;
+    color: var(--left-text);
+    margin-bottom: 6px;
+  }
+  .level-label { font-size: 9.5px; color: var(--left-accent); }
+
+  /* ── RIGHT PANEL ── */
+  .right {
+    padding: 40px 38px;
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+  }
+
+  .header-block {
+    padding-bottom: 18px;
+    border-bottom: 2px solid var(--ink);
+  }
+  .header-tag {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent2);
+    margin-bottom: 6px;
+  }
+  .header-h1 {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 28px;
+    color: var(--ink);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+  .header-h1 em {
+    font-style: normal;
+    color: var(--accent);
+  }
+
+  .profile-box {
+    background: var(--accent-pale);
+    border-left: 4px solid var(--accent);
+    padding: 14px 16px;
+    font-size: 12.5px;
+    color: #2A4A40;
+    line-height: 1.72;
+    font-weight: 400;
+  }
+
+  .r-section-title {
+    font-size: 8.5px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .r-section-title::after { content: ''; flex: 1; height: 1px; background: var(--rule); }
+
+  /* Timeline experiencia */
+  .timeline { position: relative; padding-left: 20px; }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 6px; top: 6px; bottom: 6px;
+    width: 1px;
+    background: var(--rule);
+  }
+
+  .tl-item { position: relative; margin-bottom: 22px; }
+  .tl-dot {
+    position: absolute;
+    left: -17px;
+    top: 5px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 2px solid var(--paper);
+    box-shadow: 0 0 0 2px var(--accent);
+  }
+  .tl-dot.secondary {
+    background: var(--rule);
+    box-shadow: 0 0 0 2px var(--light);
+  }
+
+  .tl-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 2px; }
+  .tl-company {
+    font-family: 'Syne', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .tl-date {
+    font-size: 10px;
+    color: var(--light);
+    white-space: nowrap;
+    margin-left: 10px;
+    margin-top: 2px;
+  }
+  .tl-role {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent2);
+    margin-bottom: 8px;
+  }
+  .tl-bullets { list-style: none; }
+  .tl-bullets li {
+    font-size: 12px;
+    color: var(--mid);
+    line-height: 1.65;
+    padding-left: 14px;
+    position: relative;
+    margin-bottom: 2px;
+  }
+  .tl-bullets li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--accent2);
+    font-size: 9px;
+    top: 4px;
+  }
+
+  .kpi-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 8px; }
+  .kpi-chip {
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    background: var(--accent-pale);
+    color: var(--accent);
+    border: 1px solid rgba(27,77,62,0.2);
+    border-radius: 2px;
+  }
+
+  /* Competencias PM en grid */
+  .competencias-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+  .comp-card {
+    padding: 10px 12px;
+    border: 1px solid var(--rule);
+    border-top: 3px solid var(--accent);
+    text-align: center;
+  }
+  .comp-icon { font-size: 18px; margin-bottom: 4px; }
+  .comp-name { font-size: 10.5px; font-weight: 700; color: var(--ink); }
+  .comp-sub { font-size: 9.5px; color: var(--light); margin-top: 1px; }
+
+  /* Experiencia complementaria mini */
+  .mini-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .mini-card {
+    padding: 10px 12px;
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--accent2);
+    background: #FDFDFB;
+  }
+  .mini-co { font-size: 12px; font-weight: 700; color: var(--ink); }
+  .mini-r { font-size: 9.5px; color: var(--accent2); text-transform: uppercase; letter-spacing: 0.07em; }
+  .mini-d { font-size: 9.5px; color: var(--light); margin-bottom: 4px; }
+  .mini-desc { font-size: 11px; color: var(--mid); line-height: 1.5; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- LEFT -->
+  <aside class="left">
+
+    <div class="name-block">
+      <div class="name-top">Camila Fernanda</div>
+      <div class="name-main">Azola<br><span class="name-accent">Garaventa</span></div>
+      <div class="role-pill">Project Assistant · PM Jr.</div>
+    </div>
+
+    <div class="l-section">
+      <div class="l-label">Contacto</div>
+      <div class="contact-row"><span class="c-icon">✉</span> camilafern.ag@gmail.com</div>
+      <div class="contact-row"><span class="c-icon">✆</span> +34 662 467 425</div>
+      <div class="contact-row"><span class="c-icon">◎</span> Barcelona, España</div>
+    </div>
+
+    <div class="l-section">
+      <div class="l-label">Aptitudes PM</div>
+      <div class="skill-bar-item">
+        <div class="skill-bar-name">Coordinación de equipos <span>Avanzado</span></div>
+        <div class="bar-track"><div class="bar-fill" style="width:90%"></div></div>
+      </div>
+      <div class="skill-bar-item">
+        <div class="skill-bar-name">Gestión de plazos / Deadlines <span>Avanzado</span></div>
+        <div class="bar-track"><div class="bar-fill" style="width:88%"></div></div>
+      </div>
+      <div class="skill-bar-item">
+        <div class="skill-bar-name">Control de calidad (QC) <span>Avanzado</span></div>
+        <div class="bar-track"><div class="bar-fill" style="width:92%"></div></div>
+      </div>
+      <div class="skill-bar-item">
+        <div class="skill-bar-name">Gestión de inventario / Recursos <span>Alto</span></div>
+        <div class="bar-track"><div class="bar-fill" style="width:82%"></div></div>
+      </div>
+      <div class="skill-bar-item">
+        <div class="skill-bar-name">Reporte e incidencias <span>Sólido</span></div>
+        <div class="bar-track"><div class="bar-fill" style="width:78%"></div></div>
+      </div>
+      <div class="skill-bar-item">
+        <div class="skill-bar-name">Excel / Herramientas digitales <span>Básico-Medio</span></div>
+        <div class="bar-track"><div class="bar-fill" style="width:55%"></div></div>
+      </div>
+    </div>
+
+    <div class="l-section">
+      <div class="l-label">Capacidades Transversales</div>
+      <div class="pm-skill">Toma de decisiones bajo presión</div>
+      <div class="pm-skill">Adaptabilidad a entornos dinámicos</div>
+      <div class="pm-skill">Orientación al detalle y al resultado</div>
+      <div class="pm-skill">Comunicación directa con clientes</div>
+      <div class="pm-skill">Gestión documental y archivo</div>
+    </div>
+
+    <div class="l-section">
+      <div class="l-label">Formación</div>
+      <div class="edu-block">
+        <div class="edu-name">Marketing & Publicidad + Gestión de Proyectos</div>
+        <div class="edu-year">En curso · 2025–2026</div>
+      </div>
+      <div class="edu-block">
+        <div class="edu-name">Turismo y Hotelería</div>
+        <div class="edu-sub">CFT PUCV · Chile</div>
+      </div>
+      <div class="edu-block">
+        <div class="edu-name">Bachillerato</div>
+        <div class="edu-sub">Liceo N°1 Niñas · Valparaíso</div>
+      </div>
+    </div>
+
+    <div class="l-section">
+      <div class="l-label">Idiomas</div>
+      <div class="lang-row"><span>Español</span><span class="level-label">Nativo</span></div>
+      <div class="lang-row"><span>Inglés</span><span class="level-label">Básico</span></div>
+    </div>
+
+  </aside>
+
+  <!-- RIGHT -->
+  <main class="right">
+
+    <div class="header-block">
+      <div class="header-tag">Project Assistant · Coordinadora de Proyectos · Junior PM</div>
+      <div class="header-h1">8 años gestionando<br>proyectos <em>reales.</em></div>
+    </div>
+
+    <div class="profile-box">
+      Profesional con experiencia demostrada en coordinación de equipos, control de calidad y supervisión operativa en proyectos de gran escala y alta exigencia. He gestionado recursos, cumplido hitos de entrega, detectado desviaciones y documentado incidencias en entornos donde el error tiene consecuencias directas — habilidades que son el núcleo del Project Management. Actualmente en formación específica en Gestión de Proyectos, con disposición inmediata para incorporarme como Project Assistant o Coordinadora en Barcelona.
+    </div>
+
+    <!-- COMPETENCIAS PM -->
+    <div>
+      <div class="r-section-title">Competencias clave de gestión</div>
+      <div class="competencias-grid">
+        <div class="comp-card">
+          <div class="comp-icon">📋</div>
+          <div class="comp-name">Planificación</div>
+          <div class="comp-sub">Control de plazos y entregables</div>
+        </div>
+        <div class="comp-card">
+          <div class="comp-icon">👥</div>
+          <div class="comp-name">Equipos</div>
+          <div class="comp-sub">Coordinación multidisciplinar</div>
+        </div>
+        <div class="comp-card">
+          <div class="comp-icon">🔍</div>
+          <div class="comp-name">Calidad (QC)</div>
+          <div class="comp-sub">Detección y seguimiento de desviaciones</div>
+        </div>
+        <div class="comp-card">
+          <div class="comp-icon">📦</div>
+          <div class="comp-name">Recursos</div>
+          <div class="comp-sub">Gestión de inventario y stock</div>
+        </div>
+        <div class="comp-card">
+          <div class="comp-icon">⚡</div>
+          <div class="comp-name">Riesgo</div>
+          <div class="comp-sub">Respuesta a imprevistos bajo presión</div>
+        </div>
+        <div class="comp-card">
+          <div class="comp-icon">🤝</div>
+          <div class="comp-name">Stakeholders</div>
+          <div class="comp-sub">Comunicación directa con clientes</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- EXPERIENCIA RELEVANTE -->
+    <div>
+      <div class="r-section-title">Experiencia como gestora de proyectos</div>
+      <div class="timeline">
+
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-header">
+            <div class="tl-company">LDZ Constructora</div>
+            <div class="tl-date">2017 – 2019 · Chile</div>
+          </div>
+          <div class="tl-role">Responsable QC y Post Venta — Proyectos de Alto Estándar</div>
+          <ul class="tl-bullets">
+            <li>Coordinación de equipos en 3 proyectos simultáneos de alta envergadura (Mandarin Oriental, Hotel Pullman Viña del Mar, 45 By Director Santiago), asegurando el cumplimiento de los hitos de entrega en plazos críticos.</li>
+            <li>Control de calidad integral (QC) en fases de terminación: inspección visual, detección de desviaciones respecto al estándar, documentación y seguimiento hasta resolución.</li>
+            <li>Gestión de inventario de bodega: control de stock de materiales, registro de entradas/salidas, optimización de recursos y reducción de tiempos de espera operativos.</li>
+            <li>Gestión de la fase post-venta: primer punto de contacto con clientes, coordinación de visitas, registro de incidencias y seguimiento hasta cierre satisfactorio.</li>
+          </ul>
+          <div class="kpi-row">
+            <span class="kpi-chip">3 proyectos gestionados</span>
+            <span class="kpi-chip">Entrega en plazo</span>
+            <span class="kpi-chip">QC + Post-venta</span>
+            <span class="kpi-chip">Gestión de recursos</span>
+            <span class="kpi-chip">Reporte de incidencias</span>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-header">
+            <div class="tl-company">Constructora Paz</div>
+            <div class="tl-date">2015 – 2016 · Chile</div>
+          </div>
+          <div class="tl-role">Responsable Control de Calidad y Terminaciones</div>
+          <ul class="tl-bullets">
+            <li>Control de calidad en proyectos residenciales (Reñaca y Concón): revisión de terminaciones, detección de no conformidades y coordinación de correcciones en plazo.</li>
+            <li>Coordinación básica de subequipos para cumplimiento de hitos de entrega establecidos.</li>
+            <li>Organización administrativa del área operativa: archivo, gestión documental y mantenimiento del orden de bodega.</li>
+          </ul>
+          <div class="kpi-row">
+            <span class="kpi-chip">Control de hitos</span>
+            <span class="kpi-chip">No conformidades</span>
+            <span class="kpi-chip">Coordinación operativa</span>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot secondary"></div>
+          <div class="tl-header">
+            <div class="tl-company">Clínica Médica Sermeda</div>
+            <div class="tl-date">2017 · Chile</div>
+          </div>
+          <div class="tl-role">Recepcionista / Coordinación Administrativa</div>
+          <ul class="tl-bullets">
+            <li>Gestión de agenda y coordinación del flujo de pacientes según prioridad: asignación de recursos (tiempo de consulta) en función de criterios de urgencia.</li>
+            <li>Soporte administrativo: archivo, documentación y comunicación entre áreas.</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- EXPERIENCIA COMPLEMENTARIA -->
+    <div>
+      <div class="r-section-title">Experiencia complementaria</div>
+      <div class="mini-grid">
+        <div class="mini-card">
+          <div class="mini-co">Walmart Líder Chile</div>
+          <div class="mini-r">Apoyo a Jefatura / Inventario</div>
+          <div class="mini-d">2020</div>
+          <div class="mini-desc">Apoyo directo a jefatura en control de stock, reposición y tareas administrativas de área.</div>
+        </div>
+        <div class="mini-card">
+          <div class="mini-co">Tabaquería Wolff</div>
+          <div class="mini-r">Inventario y Ventas</div>
+          <div class="mini-d">2021 – 2022</div>
+          <div class="mini-desc">Control de inventario, reposición y organización del punto de venta con responsabilidad directa.</div>
+        </div>
+        <div class="mini-card">
+          <div class="mini-co">Cuidado Adulto Mayor — España</div>
+          <div class="mini-r">Gestión de rutinas y organización</div>
+          <div class="mini-d">2024 – 2026 · Barcelona</div>
+          <div class="mini-desc">Planificación y gestión autónoma de rutinas diarias; alta responsabilidad y adaptación continua.</div>
+        </div>
+        <div class="mini-card">
+          <div class="mini-co">Guzmán y Larraín</div>
+          <div class="mini-r">Apoyo en obra / Bodega</div>
+          <div class="mini-d">2013</div>
+          <div class="mini-desc">Inicio en entornos de obra: estándares de calidad, bodega y revisión de detalles (Proyecto UNAB).</div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+</div>
+</body>
+</html>
